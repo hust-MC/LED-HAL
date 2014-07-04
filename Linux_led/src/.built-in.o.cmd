@@ -1,0 +1,1 @@
+cmd_/root/android/adt-bundle-linux-x86-20140321/eclipse/workspace/MC_LED_HAL/Linux_led/src/built-in.o :=  rm -f /root/android/adt-bundle-linux-x86-20140321/eclipse/workspace/MC_LED_HAL/Linux_led/src/built-in.o; arm-linux-ar rcsD /root/android/adt-bundle-linux-x86-20140321/eclipse/workspace/MC_LED_HAL/Linux_led/src/built-in.o
