@@ -40,6 +40,7 @@ int main(int arc, char **argv)
 			printf("argv[%d] error\n", i);
 		}
 	}
+	write(dev_file,cmd,sizeof(cmd));
 	close(file_handler);
 	return 0;
 }
