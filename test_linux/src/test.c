@@ -40,12 +40,6 @@ int main(int arc, char **argv)
 			printf("argv[%d] error\n", i);
 		}
 	}
-	for (i = 0; i < 4; i++)
-	{
-		printf("cmd[%d] = %d\n", i, cmd[i]);
-	}
-	printf("write number = %d\nn = %d\n", write(file_handler, cmd, sizeof(cmd)),
-			strlen(cmd));
 	close(file_handler);
 	return 0;
 }

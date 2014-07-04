@@ -26,14 +26,13 @@ static ssize_t word_count_write(struct file *file, const char __user *buf,
 		size_t count, loff_t *ppos)
 {
 	int i;
-	printk("cnt = %d\n",count);
 	for (i = 0; i < count; i++)
 	{
 		printk("%d\n", buf[i]);
 	}
 	if (copy_from_user(mem, buf, count))
 	{
-		printk("copy error");
+		printk("error:copy error");
 		return -EFAULT;
 	}
 	else if (count > 4)
