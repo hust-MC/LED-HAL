@@ -26,19 +26,25 @@ static ssize_t word_count_write(struct file *file, const char __user *buf,
 		size_t count, loff_t *ppos)
 {
 	int i;
+	printk("cnt = %d\n",count);
+	for (i = 0; i < count; i++)
+	{
+		printk("%d\n", buf[i]);
+	}
 	if (copy_from_user(mem, buf, count))
 	{
+		printk("copy error");
 		return -EFAULT;
 	}
 	else if (count > 4)
 	{
-		printk("error:count = %d > 4 \n",count);
+		printk("error:count = %d > 4 \n", count);
 	}
 	else
 	{
 		for (i = 0; i < 4; i++)
 		{
-			printk("%d\n",mem[i]);
+			printk("%d\n", mem[i]);
 			gpio_set_value(led_gpios[i], mem[i]);
 		}
 	}

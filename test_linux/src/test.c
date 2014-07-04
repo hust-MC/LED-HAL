@@ -27,21 +27,25 @@ int main(int arc, char **argv)
 	file_handler = open(dev_file, O_RDWR);
 	for (i = 2; i < 6; i++)
 	{
-		if (!strcmp(argv[i],"1"))
+		if (!strcmp(argv[i], "1"))
 		{
-			cmd[i-2] = 0;
+			cmd[i - 2] = 0;
 		}
-		else if (!strcmp(argv[i],"0"))
+		else if (!strcmp(argv[i], "0"))
 		{
-			cmd[i-2] = 1;
+			cmd[i - 2] = 1;
 		}
 		else
 		{
-			printf("argv[%d] error\n",i);
+			printf("argv[%d] error\n", i);
 		}
 	}
-
-	write(file_handler, cmd, strlen(cmd));
+	for (i = 0; i < 4; i++)
+	{
+		printf("cmd[%d] = %d\n", i, cmd[i]);
+	}
+	printf("write number = %d\nn = %d\n", write(file_handler, cmd, sizeof(cmd)),
+			strlen(cmd));
 	close(file_handler);
 	return 0;
 }
