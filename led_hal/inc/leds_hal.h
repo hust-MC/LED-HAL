@@ -9,7 +9,7 @@ struct led_module_t
 struct led_control_device_t
 {
 	struct hw_device_t hw_device;
-	int (*set_led_state)(char state);
+	int (*set_led_state)(int8_t state[]);
 };
 
 #define LED_HARDWARE_MODULE_ID "led_hal"
