@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>linux_led</name>
+	<name>LED_HAL_JNI</name>
 	<comment></comment>
 	<projects>
 	</projects>

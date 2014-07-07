@@ -1,0 +1,7 @@
+#!build.sh
+
+cd /root/android/source_code/android-4.0.3_r1/
+source build/envsetup.sh
+cd hardware/led_hal
+mm
+cp /root/android/source_code/android-4.0.3_r1/out/target/product/generic/system/lib/hw/led_hal.default.so .
