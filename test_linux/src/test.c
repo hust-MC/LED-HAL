@@ -24,7 +24,12 @@ int main(int arc, char **argv)
 	}
 
 	char *dev_file = argv[1];
-	file_handler = open(dev_file, O_RDWR);
+	file_handler = open("/dev/MC_LED_HAL", O_RDWR);
+	printf("%d",file_handler);
+	if (file_handler < 0)
+	{
+		printf("open error\n");
+	}
 	for (i = 2; i < 6; i++)
 	{
 		if (!strcmp(argv[i], "1"))
@@ -40,7 +45,7 @@ int main(int arc, char **argv)
 			printf("argv[%d] error\n", i);
 		}
 	}
-	write(dev_file,cmd,sizeof(cmd));
+	write(file_handler, cmd, sizeof(cmd));
 	close(file_handler);
 	return 0;
 }

@@ -4,6 +4,7 @@ static ssize_t word_count_write(struct file *file, const char __user *buf,
 		size_t count, loff_t *ppos)
 {
 	int i;
+	printk("count = %d",count);
 	for (i = 0; i < count; i++)
 	{
 		printk("%d\n", buf[i]);

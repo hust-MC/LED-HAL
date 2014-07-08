@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE:= led_hal_jni
 
-#LOCAL_MODULE_PATH := /root/android/adt-bundle-linux-x86-20140321/eclipse/workspace/MC_LED_HAL/leds_hal_jni
+LOCAL_MODULE_PATH := /root/android/adt-bundle-linux-x86-20140321/eclipse/workspace/MC_LED_HAL/LED_HAL_JNI
 
 LOCAL_SRC_FILES:= src/LedHalService.cpp
    

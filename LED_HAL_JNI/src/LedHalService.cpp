@@ -4,14 +4,14 @@
 #include <assert.h>
 #include <jni.h>
 #include <leds_hal.h>
-
+#include <stdio.h>
 
 struct led_control_device_t *led_hal_device = NULL;
 
 static jboolean led_setState(JNIEnv *env, jobject thiz, jbyteArray led)
 {
 	jbyte led_state[4];
-	LOGI("Led HAL JNI: led_setState() is invoked.");
+	LOGI("Led HAL JNI: led_setState() is invoked.MC");
 
 	if (led_hal_device == NULL)
 	{
@@ -36,13 +36,13 @@ static jboolean led_init(JNIEnv *env, jclass clazz)
 {
 	led_module_t *module;
 
-	LOGE("**********start find hal *********");
+	LOGE("**********MC start find hal MC*********");
 	LOGE(LED_HARDWARE_MODULE_ID);
 
 	if (hw_get_module(LED_HARDWARE_MODULE_ID, (const hw_module_t**) &module)
 			== 0)
 	{
-		LOGI("LedService JNI: LED Stub found.");
+		LOGI("LedService JNI: LED Stub found.MC");
 		if (led_control_open(&module->hw_module, &led_hal_device) == 0)
 		{
 			LOGI("LedService JNI: Got Stub operations.");
@@ -50,12 +50,12 @@ static jboolean led_init(JNIEnv *env, jclass clazz)
 		}
 	}
 
-	LOGE("LedService JNI: Get Stub operations failed.");
+	LOGE("LedService JNI: Get Stub operations failed.MC");
 	return -1;
 }
 
 static const JNINativeMethod methods[] = {
-		{ "_init", "()Z", (void *) led_init }, { "_set_on", "(I)Z",
+		{ "_init", "()Z", (void *) led_init }, { "_set_state", "([B)Z",
 				(void *) led_setState }, };
 
 int register_led_hal_jni(JNIEnv* env)
