@@ -5,7 +5,6 @@
 #include <jni.h>
 #include <leds_hal.h>
 
-
 struct led_control_device_t *led_hal_device = NULL;
 
 static jboolean led_setState(JNIEnv *env, jobject thiz, jbyteArray led)

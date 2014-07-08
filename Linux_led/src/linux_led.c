@@ -1,4 +1,4 @@
-#include "Led_hal_define.h"
+#include "../inc/Led_hal_define.h"
 
 static ssize_t word_count_write(struct file *file, const char __user *buf,
 		size_t count, loff_t *ppos)

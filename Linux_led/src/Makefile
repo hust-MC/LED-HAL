@@ -1,1 +1,1 @@
-obj-m := Led_hal.o
+obj-m := linux_led.o
