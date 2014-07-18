@@ -1,6 +1,6 @@
 #include "../inc/leds_hal.h"
 
-int dev_file = 3;
+int dev_file = 0;
 
 int led_state(int8_t led[])
 {
@@ -37,7 +37,7 @@ static int led_device_open(const struct hw_module_t* module, const char* name,
 	//*device = &dev->hw_device;
 	*device = (hw_device_t*) dev;
 
-//	dev_file = open("/dev/MC_LED_HAL", O_RDWR);
+	dev_file = open("/dev/MC_LED_HAL", O_RDWR);
 	if (dev_file < 0)
 	{
 		LOGI("MCLED Stub: open /dev/MC_LED_HAL  fail.MC");
