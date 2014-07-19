@@ -1,22 +1,23 @@
 #include "../inc/Led_hal_define.h"
 
+
 static ssize_t mc_led_hal_write(struct file *file, const char __user *buf,
 		size_t count, loff_t *ppos)
 {
 	int i;
-	printk("count = %d", count);
+	print_debug("count = %d\n", count);
 	for (i = 0; i < count; i++)
 	{
-		printk("%d\n", buf[i]);
+		print_debug("%d\n", buf[i]);
 	}
 	if (copy_from_user(mem, buf, count))
 	{
-		printk("error:copy error");
+		print_debug("error:copy error");
 		return -EFAULT;
 	}
 	else if (count > 4)
 	{
-		printk("error:count = %d > 4 \n", count);
+		print_debug("error:count = %d > 4 \n", count);
 	}
 	else
 	{
@@ -24,7 +25,7 @@ static ssize_t mc_led_hal_write(struct file *file, const char __user *buf,
 		{
 			gpio_set_value(led_gpios[i], mem[i]);
 		}
-		printk("write success\n", mem[i]);
+		print_debug("write success\n");
 	}
 	return count;
 }
@@ -39,14 +40,14 @@ DEVICE_NAME, .fops = &dev_fops };
 static int mc_led_hal_init(void)
 {
 	ret = misc_register(&misc);              //成功注册，返回非0整数，失败返回0
-	printk("mc_led_hal_init_success:%d\n", ret);
+	print_debug("mc_led_hal_init_success:%d\n", ret);
 	return ret;
 }
 
 static void mc_led_hal_exit(void)
 {
 	misc_deregister(&misc);
-	printk("mc_led_hal_exit_success\n");
+	print_debug("mc_led_hal_exit_success\n");
 }
 
 module_init(mc_led_hal_init);

@@ -8,6 +8,13 @@
 #ifndef LED_HAL_DEFINE_H
 #define LED_HAL_DEFINE_H
 
+#if 1
+#define print_debug(x,...) printk(x, ##__VA_ARGS__)
+#else
+#define print_debug(x,...) do{}  while(0)
+#endif
+
+
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/miscdevice.h>
@@ -26,6 +33,7 @@
 #include <asm/uaccess.h>
 
 #define DEVICE_NAME "MC_LED_HAL"
+
 static unsigned char mem[10];
 static int ret;
 
